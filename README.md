@@ -1,0 +1,1 @@
+This project focuses on credit card number detection within text data. It is designed to identify and extract potential credit card numbers from various sources, such as documents, logs, or user inputs, ensuring sensitive information can be managed securely.
