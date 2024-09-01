@@ -1,0 +1,364 @@
+/* Global Styles */
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f9;
+    color: #333;
+    overflow: hidden; /* Hide overflow for smoother background animation */
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    background-color: #007bff; /* Default background color */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+    background-color: #007bff; /* Default background color */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.header-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Ensure the image fills the entire header */
+    overflow: hidden;
+}
+
+.header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the area while maintaining aspect ratio */
+}
+
+.header-content {
+    position: absolute;
+    top: 20%; /* Adjust this to move the content down or up */
+    left: 50%;
+    transform: translate(-50%, -20%); /* Center horizontally and adjust vertical positioning */
+    width: 80%; /* Adjust width as needed */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text inside the container */
+    z-index: 1; /* Ensure this is on top of the header-image */
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 2.5em; /* Adjust font size as needed */
+    background: rgba(0, 0, 0, 0.5); /* Dark background for better contrast */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for a modern look */
+    color: white; /* White text color for better readability */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for depth */
+}
+
+/* Background Gradient and Grid */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(0, 123, 255, 0.2), transparent 50%),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+    z-index: -1;
+    animation: grid 10s linear infinite;
+}
+
+@keyframes grid {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+}
+
+/* Page Layout */
+.ml-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Increase width to 90% of the viewport */
+    max-width: 1000px; /* Maximum width */
+    margin: 20px;
+    padding: 30px; /* Increased padding for better spacing */
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    z-index: 2; /* Ensure this is on top of everything */
+}
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+input[type="submit"]:active {
+    background-color: #003d79;
+    transform: scale(0.98);
+}
+
+/* Error Message Styles */
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Results Page Styles */
+.results {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.results h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.results h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.not-fraud {
+    color: #28a745;
+}
+
+.fraud {
+    color: #dc3545;
+}
+
+/* Container for progress bars */
+.progress-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.progress-wrap {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+/* Styles for progress circles */
+.progress-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #eee;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.progress-circle:hover {
+    transform: scale(1.05);
+}
+
+/* Inner progress bars */
+.progress-inner {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0; /* Start with height 0 */
+    background-color: #4caf50;
+    transition: height 1s ease;
+    animation: fill 3s forwards; /* Add animation */
+}
+
+.not-fraud-progress .progress-inner {
+    background-color: #28a745; /* Green */
+}
+
+.fraud-progress .progress-inner {
+    background-color: #dc3545; /* Red */
+}
+
+/* Text inside progress circles */
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #333;
+}
+
+.progress-text .percentage {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.progress-text .label {
+    font-size: 14px;
+    color: #777;
+}
+
+/* Button styles */
+.btn-info {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px 0;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-info:hover {
+    background-color: #0056b3;
+}
+
+/* Chart container styles */
+.charts {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Animation keyframes */
+@keyframes fill {
+    from {
+        height: 0;
+    }
+    to {
+        height: var(--fill-percentage);
+    }
+}
+
+
+/* Inner progress bars */
+.progress-inner {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #4caf50;
+    transition: height 1s ease;
+}
+
+.not-fraud-progress .progress-inner {
+    background-color: #4caf50; /* Green */
+}
+
+/* Text inside progress circles */
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #333;
+}
+
+.progress-text .percentage {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.progress-text .label {
+    font-size: 14px;
+    color: #777;
+}
+
+.btn-info:hover {
+    background-color: #0056b3;
+}
+
+/* Chart container styles */
+.charts {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+canvas {
+    width: 300px !important;
+    height: 300px !important;
+}
+
+/* Button styles */
+.btn-info {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px 0;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-info:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.btn-info:active {
+    background-color: #003d79;
+    transform: scale(0.98);
+}
